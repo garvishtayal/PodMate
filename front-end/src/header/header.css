@@ -1,0 +1,157 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.header-container {
+  display: flex;
+  height: 50px;
+  font-size: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.253);
+}
+.header-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header-middle {
+  flex: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 100px;
+  padding-right: 100px;
+  color: rgba(255, 255, 255, 0.733);
+}
+.header-middle-element {
+  transition: color 0.2s;
+}
+.header-middle-element:hover {
+  color: white;
+  cursor: pointer;
+}
+.header-middle-element:active {
+  box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.178);
+}
+.header-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding-left: 40px;
+  color: white;
+  transition: color 0.3s;
+}
+.header-login:hover {
+  cursor: pointer;
+}
+.header-login:active {
+  color: rgba(255, 255, 255, 0.459);
+  box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.178);
+}
+
+.header-contact {
+  background-color: transparent;
+  padding: 8px ;
+  color: rgba(255, 255, 255, 0.815);
+  border: 1px solid white;
+}
+.header-contact:hover {
+  box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.178);
+  cursor: pointer;
+}
+.header-contact:active {
+  color: rgba(255, 255, 255, 0.397);
+  box-shadow: none;
+}
+.header-login {
+  margin-right: 15px;
+}
+.header-login-button {
+  border-radius: 100px;
+  border: 1px black solid;
+  display: none;
+}
+.header-login-button-image, .header-hanburger-img {
+  height: 20px;
+}
+.header-toogle-button {
+  display: none;
+}
+.header-hanburger-img {
+  margin-top: 7px;
+}
+.header-hanburger-img:hover {
+  cursor: pointer;
+}
+.header-hanburger-img:active {
+  box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.178);
+}
+.logo-img {
+  height: 30px;
+  background-color: white;
+  padding: 4px;
+  border-radius: 20px;
+}
+.logo-img:hover{
+  box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.596);
+  cursor: pointer;
+}
+.header-name {
+  color: rgba(255, 255, 255, 0.808);
+  font-family: 'Courier New', Courier, monospace;
+}
+.header-hanburger {
+  background-color: transparent;
+  border: none;
+}
+
+
+
+@media screen and (max-width: 800px) {
+  .header-toogle-button {
+    flex: 1;
+    margin-top: 4px;
+    margin-left: 4px;
+  }
+  .header-toogle-button {
+    display: unset;
+  }
+  .header-login-button{
+    display: unset;
+    margin-left: 70px;
+    background-color: rgba(255, 255, 255, 0.548);
+  }
+  .header-login, .header-contact, .header-middle {
+    display: none;
+  }
+  .header-left {
+    flex: 2;
+  }
+
+
+
+/* when toggle is on */
+  .header-middle-open {
+    display: unset;
+    flex: 8;
+    display: flex;
+    padding: 0;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .header-left-open {
+    display: none;
+  }
+  .header-login-open {
+    display: none;
+  }
+  
+}
+
+
+@media (min-width: 800px) and (max-width: 1000px) {
+  .header-middle {
+    padding-left: 50px;
+    padding-right: 40px;
+  }
+}
