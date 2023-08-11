@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import Podcast from "../Models/PodcastSchema";
 
 interface podcastType {
   title: string;
@@ -19,6 +20,20 @@ const handleUpload = (req: Request, res: Response) => {
 
   try {
     // Perform saving data to database.. my guess is (this function will have a middleware that will first upload the audio and video then will send it's link as string here .... or.. we can do it here but for that have to change it's type... but i think.. it should be uploaded in frontend and it's link should be sent here)
+  } catch (error) {
+    return res.status(400).json({ error });
+  }
+};
+
+const fetchPodacat = async (req: Request, res: Response) => {
+  try {
+    const podcasts = await Podcast.find();
+
+    if (podcasts.length === 0) {
+      return res.json({ message: "No podcast found" });
+    }
+
+    return res.json({ podcasts });
   } catch (error) {
     return res.status(400).json({ error });
   }
