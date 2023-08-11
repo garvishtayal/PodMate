@@ -1,11 +1,7 @@
-import { Document, Schema, model } from "mongoose";
+import mongoose, { Document, Schema, Types, model } from "mongoose";
 
 interface IPodcast {
-  title: string;
-  description: string;
-  thumbnail: string;
-  audio: string;
-  video: string;
+  _id: Types.ObjectId;
 }
 
 interface IUser extends Document {
@@ -22,15 +18,7 @@ const UserSchema = new Schema<IUser>({
   password: { type: String, required: true },
   pic: { type: String, default: "a default pic" },
 
-  podcasts: [
-    {
-      title: { type: String, required: true },
-      description: { type: String, required: true },
-      thumbnail: { type: String, required: true },
-      audio: { type: String, required: true },
-      video: { type: String, required: true },
-    },
-  ],
+  podcasts: [{ _id: { type: mongoose.Schema.Types.ObjectId, ref: "Podcast" } }],
 });
 
 const User = model<IUser>("User", UserSchema);
