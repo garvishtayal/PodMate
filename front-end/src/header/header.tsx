@@ -1,4 +1,3 @@
-import './header.css';
 import { useState } from 'react';
 import loginImage from '/header-login.png'
 import hanburgerImage from '/ham.png'
@@ -13,31 +12,43 @@ function Header() {
   };
 
   return (
-    <div className='header-container'>
-      <div className='header-toogle-button'>
-      <button className='header-hanburger'
-        onClick={toggleNavbar}
-        >
-        <img className='header-hanburger-img' src={hanburgerImage}></img>
-      </button>
+    <div className="px-10 flex h-14 text-base border-b border-white-25">
+
+
+      {/* Toggle Img (shows only on small_screen)*/}
+      <div className="flex-1 md:hidden">
+        <img onClick={toggleNavbar}
+          className="h-5 hover:cursor-pointer"
+          src={hanburgerImage}>
+        </img>
       </div>
-      <div className={`header-left ${isOpen ? 'header-left-open' : ''}`}>
-        <img className='logo-img' src= {logoImage}></img>
-        <div className='header-name'>PodMate</div>
+
+      {/* Left-Logo (switch to middle in small screen) */}
+      <div className={`flex-1 md:flex-none flex items-center ${isOpen ? 'hidden' : ''}`}>
+        <img
+          className="h-10 bg-white p-1 rounded-full logo-img hover:shadow-md hover:cursor-pointer" src={logoImage}>
+        </img>
+        <div className='text-white'>PodMate</div>
       </div>
-      <div className={`header-middle ${isOpen ? 'header-middle-open' : ''}`}>
-        <div className='header-middle-element'>FEATURES</div>
-        <div className='header-middle-element'>EPISODES</div>
-        <div className='header-middle-element'>PRICING</div>
-        <div className='header-middle-element'>ABOUT US</div>
+
+      {/* Middle */}
+      <div className={`hidden md:flex flex-1 justify-evenly items-center text-white${isOpen ? 'hidden' : ''}`}>
+        <div className="hover:text-white mr-4 hover:cursor-pointer">FEATURES</div>
+        <div className="hover:text-white mr-4 hover:cursor-pointer">EPISODES</div>
+        <div className="hover:text-white mr-4 hover:cursor-pointer">PRICING</div>
+        <div className="hover:text-white mr-4 hover:cursor-pointer">ABOUT US</div>
       </div>
-      <div className={`header-right ${isOpen ? 'header-login-open' : ''}`}>
-        <button className='header-login-button'>
-          <img className='header-login-button-image' src={loginImage}></img>
+
+      {/* Right */}
+      <div className={`flex items-center pl-10 text-white ${isOpen ? 'hidden' : ''}`}>
+        <button className="md:hidden bg-white border rounded-full border-black-500">
+          <img className='h-8' src={loginImage}></img>
         </button>
-        <div className='header-login'>LOGIN</div>
-        <button className='header-contact'>CONTACT US</button>
+        <div className="hidden md:flex">LOGIN</div>
+        <button className="hidden md:block p-2 ml-2 text-white border border-white-100">CONTACT US</button>
       </div>
+
+
     </div>
   )
 }
